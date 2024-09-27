@@ -1,0 +1,54 @@
+How to execute in Postman for different methods:
+GET All Food Items:
+
+Method: GET
+URL: http://localhost:3000/api/food
+GET a Single Food Item by ID:
+
+Method: GET
+URL: http://localhost:3000/api/food/1
+POST (Add a New Food Item):
+
+Method: POST
+URL: http://localhost:3000/api/food
+Body (JSON):
+
+{
+  "name": "Cheesecake",
+  "price": 12.00,
+  "manufactureDate": "09-20-2024",
+  "expiryDate": "09-30-2024"
+}
+
+PUT (Update Entire Food Item by ID):
+
+Method: PUT
+URL: http://localhost:3000/api/food/1
+Body (JSON):
+
+{
+  "name": "Mango Cheesecake",
+  "price": 11.00,
+  "manufactureDate": "09-16-2024",
+  "expiryDate": "09-29-2024"
+}
+
+PATCH (Partial Update Food Item by ID):
+
+Method: PATCH
+URL: http://localhost:3000/api/food/1
+Body (JSON):
+
+{
+  "price": 9.00
+}
+
+
+DELETE a Food Item by ID:
+
+Method: DELETE
+URL: http://localhost:3000/api/food/1
+Apply Pricing Logic Based on Expiry Date:
+
+Method: GET
+URL: http://localhost:3000/api/food/apply-pricing-logic
