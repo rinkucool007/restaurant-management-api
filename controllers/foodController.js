@@ -20,6 +20,25 @@ exports.getAllFood = (req, res) => {
     res.json(foodData);
 };
 
+// GET all food items with nutritional information
+exports.getAllFood = (req, res) => {
+    const foodData = readFoodData();
+    res.json(foodData);
+};
+
+// GET food item by ID with nutritional details
+exports.getFoodWithNutrition = (req, res) => {
+    const foodData = readFoodData();
+    const foodId = parseInt(req.params.id);
+    const foodItem = foodData.find(item => item.id === foodId);
+
+    if (foodItem) {
+        res.json(foodItem);
+    } else {
+        res.status(404).json({ message: 'Food item not found' });
+    }
+};
+
 // POST new food item
 exports.addFood = (req, res) => {
     const foodData = readFoodData();

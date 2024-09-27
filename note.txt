@@ -54,6 +54,8 @@ Method: GET
 URL: http://localhost:3000/api/food/apply-pricing-logic
 
 
+https://restaurant-management-api-oxt4.onrender.com/api/food
+
 expiryDate :
 http://localhost:3002/api/food/check-expiry?date=09-25-2024
 

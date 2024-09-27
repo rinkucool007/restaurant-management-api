@@ -5,6 +5,17 @@
     "price": 10,
     "manufactureDate": "09-15-2024",
     "expiryDate": "09-26-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",    
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },    
     "imageUrl": "/images/mango_cake.jpg"
   },
   {
@@ -13,6 +24,17 @@
     "price": 10,
     "manufactureDate": "09-15-2024",
     "expiryDate": "09-26-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",  
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },      
     "imageUrl": "/images/Chocolate-Cake.jpg"
   },
   {
@@ -24,6 +46,14 @@
     "bestBeforeDate": "2024-09-22",
     "quantity": 50,
     "category": "Dessert",
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },    
     "imageUrl": "/images/Vanilla-Cake.jpg"
   },
   {
@@ -35,6 +65,14 @@
     "bestBeforeDate": "2024-09-22",
     "quantity": 50,
     "category": "Dessert",    
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },    
     "imageUrl": "/images/Red-Velvet-CAke.jpg"
   },
   {
@@ -45,7 +83,15 @@
     "expiryDate": "09-23-2024",
     "bestBeforeDate": "2024-09-22",
     "quantity": 50,
-    "category": "Dessert",    
+    "category": "Dessert",   
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },     
     "imageUrl": "/images/Carrot-Cake.jpg"
   },
   {
@@ -56,7 +102,15 @@
     "expiryDate": "09-22-2024",
     "bestBeforeDate": "2024-09-22",
     "quantity": 50,
-    "category": "Dessert",    
+    "category": "Dessert",   
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },     
     "imageUrl": "/images/Angel.jpg"
   },
   {
@@ -68,6 +122,14 @@
     "bestBeforeDate": "2024-09-22",
     "quantity": 50,
     "category": "Dessert",    
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },    
     "imageUrl": "/images/Pound.jpg"
   },
   {
@@ -78,7 +140,15 @@
     "expiryDate": "09-20-2024",
     "bestBeforeDate": "2024-09-22",
     "quantity": 50,
-    "category": "Dessert",    
+    "category": "Dessert",
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },        
     "imageUrl": "/images/Chiffon.jpg"
   },
   {
@@ -89,7 +159,15 @@
     "expiryDate": "09-30-2024",
     "bestBeforeDate": "2024-09-22",
     "quantity": 50,
-    "category": "Dessert",    
+    "category": "Dessert",
+    "nutrition": {
+        "calories": "200 kcal",
+        "proteins": "3g",
+        "carbs": "35g",
+        "fats": "8g",
+        "cholesterol": "50mg",
+        "sodium": "200mg"
+      },        
     "imageUrl": "/images/Cheesecake.jpg"
   }
 ]

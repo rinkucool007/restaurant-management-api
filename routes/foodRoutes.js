@@ -6,11 +6,15 @@ const {
     updateFood,
     deleteFood,
     getBestBeforeDays,
-    getQuantityByCategory
+    getQuantityByCategory,
+    getFoodWithNutrition
 } = require('../controllers/foodController');
 
 // GET all food items
 router.get('/', getAllFood);
+
+// GET food item by ID with nutritional details
+router.get('/:id/nutrition', getFoodWithNutrition);
 
 // POST a new food item
 router.post('/', addFood);
