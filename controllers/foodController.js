@@ -1,16 +1,17 @@
 const fs = require('fs');
 const path = require('path');
-const foodFilePath = path.join(__dirname, '../data/food.json');
 
-// Helper function to read JSON data
+// Helper to read food data
 const readFoodData = () => {
-    const foodData = fs.readFileSync(foodFilePath);
-    return JSON.parse(foodData);
+    const dataPath = path.join(__dirname, '../data/food.json');
+    const foodData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+    return foodData;
 };
 
-// Helper function to write JSON data
+// Helper to write food data
 const writeFoodData = (data) => {
-    fs.writeFileSync(foodFilePath, JSON.stringify(data, null, 2));
+    const dataPath = path.join(__dirname, '../data/food.json');
+    fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 };
 
 // GET all food items
@@ -19,80 +20,57 @@ exports.getAllFood = (req, res) => {
     res.json(foodData);
 };
 
-// GET food item by ID
-exports.getFoodById = (req, res) => {
-    const foodData = readFoodData();
-    const foodItem = foodData.find(item => item.id === parseInt(req.params.id));
-    if (!foodItem) return res.status(404).json({ message: 'Food not found' });
-    res.json(foodItem);
-};
-
 // POST new food item
-exports.createFood = (req, res) => {
+exports.addFood = (req, res) => {
     const foodData = readFoodData();
-    const newFood = {
-        id: foodData.length + 1,
-        name: req.body.name,
-        price: req.body.price,
-        manufactureDate: req.body.manufactureDate,
-        expiryDate: req.body.expiryDate
-    };
+    const newFood = req.body;
+    newFood.id = foodData.length + 1;
     foodData.push(newFood);
     writeFoodData(foodData);
-    res.status(201).json(newFood);
+    res.json(newFood);
 };
 
-// PUT update food item by ID
+// PUT (update) a food item
 exports.updateFood = (req, res) => {
     const foodData = readFoodData();
-    const foodIndex = foodData.findIndex(item => item.id === parseInt(req.params.id));
-    if (foodIndex === -1) return res.status(404).json({ message: 'Food not found' });
-    
-    const updatedFood = { ...foodData[foodIndex], ...req.body };
-    foodData[foodIndex] = updatedFood;
-    writeFoodData(foodData);
-    res.json(updatedFood);
+    const foodId = parseInt(req.params.id);
+    const index = foodData.findIndex(item => item.id === foodId);
+
+    if (index !== -1) {
+        foodData[index] = { ...foodData[index], ...req.body };
+        writeFoodData(foodData);
+        res.json(foodData[index]);
+    } else {
+        res.status(404).json({ message: 'Food item not found' });
+    }
 };
 
-// PATCH partial update food item by ID
-exports.patchFood = (req, res) => {
-    const foodData = readFoodData();
-    const foodIndex = foodData.findIndex(item => item.id === parseInt(req.params.id));
-    if (foodIndex === -1) return res.status(404).json({ message: 'Food not found' });
-
-    const patchedFood = { ...foodData[foodIndex], ...req.body };
-    foodData[foodIndex] = patchedFood;
-    writeFoodData(foodData);
-    res.json(patchedFood);
-};
-
-// DELETE food item by ID
+// DELETE a food item
 exports.deleteFood = (req, res) => {
     const foodData = readFoodData();
-    const newFoodData = foodData.filter(item => item.id !== parseInt(req.params.id));
-    if (newFoodData.length === foodData.length) return res.status(404).json({ message: 'Food not found' });
+    const foodId = parseInt(req.params.id);
+    const newFoodData = foodData.filter(item => item.id !== foodId);
 
-    writeFoodData(newFoodData);
-    res.status(204).send();
+    if (newFoodData.length !== foodData.length) {
+        writeFoodData(newFoodData);
+        res.json({ message: 'Food item deleted' });
+    } else {
+        res.status(404).json({ message: 'Food item not found' });
+    }
 };
 
-// Apply pricing logic based on expiry date
-exports.applyPricingLogic = (req, res) => {
+// Check for products expiring soon
+exports.checkExpiringSoon = (req, res) => {
     const foodData = readFoodData();
-    const currentDate = new Date();
+    const targetDate = req.query.date ? new Date(req.query.date) : new Date();
 
-    foodData.forEach(item => {
+    const expiringSoon = foodData.filter(item => {
         const expiryDate = new Date(item.expiryDate);
-        const timeDifference = expiryDate.getTime() - currentDate.getTime();
-        const daysUntilExpiry = Math.ceil(timeDifference / (1000 * 3600 * 24));
-
-        if (daysUntilExpiry <= 1) {
-            item.price -= 1.00;
-        } else if (daysUntilExpiry <= 2) {
-            item.price -= 0.50;
-        }
+        return expiryDate <= targetDate;
     });
 
-    writeFoodData(foodData);
-    res.json(foodData);
+    res.json({
+        expiringSoon: expiringSoon,
+        count: expiringSoon.length
+    });
 };

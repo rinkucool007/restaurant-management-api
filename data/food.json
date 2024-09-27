@@ -20,7 +20,7 @@
     "name": "vanila cake",
     "price": 10,
     "manufactureDate": "09-15-2024",
-    "expiryDate": "09-26-2024",
+    "expiryDate": "09-25-2024",
     "imageUrl": "/images/Vanilla-Cake.jpg"
   },
   {
@@ -28,7 +28,7 @@
     "name": "Red velvet Cake",
     "price": 10,
     "manufactureDate": "09-15-2024",
-    "expiryDate": "09-26-2024",
+    "expiryDate": "09-24-2024",
     "imageUrl": "/images/Red-Velvet-CAke.jpg"
   },
   {
@@ -36,7 +36,7 @@
     "name": "Carrot Cake",
     "price": 10,
     "manufactureDate": "09-15-2024",
-    "expiryDate": "09-26-2024",
+    "expiryDate": "09-23-2024",
     "imageUrl": "/images/Carrot-Cake.jpg"
   },
   {
@@ -44,7 +44,7 @@
     "name": "Angel food Cake",
     "price": 10,
     "manufactureDate": "09-15-2024",
-    "expiryDate": "09-26-2024",
+    "expiryDate": "09-22-2024",
     "imageUrl": "/images/Angel.jpg"
   },
   {
@@ -52,7 +52,7 @@
     "name": "Pound Cake",
     "price": 10,
     "manufactureDate": "09-15-2024",
-    "expiryDate": "09-26-2024",
+    "expiryDate": "09-21-2024",
     "imageUrl": "/images/Pound.jpg"
   },
   {
@@ -60,7 +60,7 @@
     "name": "Chiffon Cake",
     "price": 10,
     "manufactureDate": "09-15-2024",
-    "expiryDate": "09-26-2024",
+    "expiryDate": "09-20-2024",
     "imageUrl": "/images/Chiffon.jpg"
   },
   {

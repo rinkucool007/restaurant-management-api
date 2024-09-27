@@ -1,22 +1,26 @@
 const express = require('express');
+const router = express.Router();
 const {
     getAllFood,
-    getFoodById,
-    createFood,
+    addFood,
     updateFood,
-    patchFood,
     deleteFood,
-    applyPricingLogic
+    checkExpiringSoon
 } = require('../controllers/foodController');
 
-const router = express.Router();
-
+// GET all food items
 router.get('/', getAllFood);
-router.get('/:id', getFoodById);
-router.post('/', createFood);
+
+// POST a new food item
+router.post('/', addFood);
+
+// PUT (update) a food item by ID
 router.put('/:id', updateFood);
-router.patch('/:id', patchFood);
+
+// DELETE a food item by ID
 router.delete('/:id', deleteFood);
-router.get('/apply-pricing-logic', applyPricingLogic);
+
+// Check food items that will expire by a certain date
+router.get('/check-expiry', checkExpiringSoon);
 
 module.exports = router;
