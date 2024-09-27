@@ -21,6 +21,9 @@
     "price": 10,
     "manufactureDate": "09-15-2024",
     "expiryDate": "09-25-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",
     "imageUrl": "/images/Vanilla-Cake.jpg"
   },
   {
@@ -29,6 +32,9 @@
     "price": 10,
     "manufactureDate": "09-15-2024",
     "expiryDate": "09-24-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",    
     "imageUrl": "/images/Red-Velvet-CAke.jpg"
   },
   {
@@ -37,6 +43,9 @@
     "price": 10,
     "manufactureDate": "09-15-2024",
     "expiryDate": "09-23-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",    
     "imageUrl": "/images/Carrot-Cake.jpg"
   },
   {
@@ -45,6 +54,9 @@
     "price": 10,
     "manufactureDate": "09-15-2024",
     "expiryDate": "09-22-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",    
     "imageUrl": "/images/Angel.jpg"
   },
   {
@@ -53,6 +65,9 @@
     "price": 10,
     "manufactureDate": "09-15-2024",
     "expiryDate": "09-21-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",    
     "imageUrl": "/images/Pound.jpg"
   },
   {
@@ -61,6 +76,9 @@
     "price": 10,
     "manufactureDate": "09-15-2024",
     "expiryDate": "09-20-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",    
     "imageUrl": "/images/Chiffon.jpg"
   },
   {
@@ -69,6 +87,9 @@
     "price": 12,
     "manufactureDate": "09-20-2024",
     "expiryDate": "09-30-2024",
+    "bestBeforeDate": "2024-09-22",
+    "quantity": 50,
+    "category": "Dessert",    
     "imageUrl": "/images/Cheesecake.jpg"
   }
 ]

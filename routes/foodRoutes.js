@@ -5,7 +5,8 @@ const {
     addFood,
     updateFood,
     deleteFood,
-    checkExpiringSoon
+    getBestBeforeDays,
+    getQuantityByCategory
 } = require('../controllers/foodController');
 
 // GET all food items
@@ -20,7 +21,10 @@ router.put('/:id', updateFood);
 // DELETE a food item by ID
 router.delete('/:id', deleteFood);
 
-// Check food items that will expire by a certain date
-router.get('/check-expiry', checkExpiringSoon);
+// Get food items best before a custom number of days
+router.get('/best-before', getBestBeforeDays);
+
+// Get quantity of items present in each category
+router.get('/category-quantity', getQuantityByCategory);
 
 module.exports = router;

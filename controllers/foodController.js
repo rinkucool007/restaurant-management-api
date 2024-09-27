@@ -59,18 +59,42 @@ exports.deleteFood = (req, res) => {
     }
 };
 
-// Check for products expiring soon
-exports.checkExpiringSoon = (req, res) => {
+// Check for items that are best before a certain number of days
+exports.getBestBeforeDays = (req, res) => {
     const foodData = readFoodData();
-    const targetDate = req.query.date ? new Date(req.query.date) : new Date();
+    const today = new Date();
+    const days = parseInt(req.query.days); // Get the number of days from the query parameters
 
-    const expiringSoon = foodData.filter(item => {
-        const expiryDate = new Date(item.expiryDate);
-        return expiryDate <= targetDate;
+    if (isNaN(days)) {
+        return res.status(400).json({ message: "Please provide a valid number of days" });
+    }
+
+    const bestBeforeItems = foodData.filter(item => {
+        const bestBeforeDate = new Date(item.bestBeforeDate);
+        const diffTime = Math.abs(bestBeforeDate - today);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
+        return diffDays <= days;
     });
 
     res.json({
-        expiringSoon: expiringSoon,
-        count: expiringSoon.length
+        bestBeforeItems: bestBeforeItems,
+        count: bestBeforeItems.length
     });
+};
+
+
+// Get quantity of items present in each category
+exports.getQuantityByCategory = (req, res) => {
+    const foodData = readFoodData();
+
+    const categoryQuantities = foodData.reduce((acc, item) => {
+        if (acc[item.category]) {
+            acc[item.category] += item.quantity;
+        } else {
+            acc[item.category] = item.quantity;
+        }
+        return acc;
+    }, {});
+
+    res.json(categoryQuantities);
 };

@@ -52,3 +52,13 @@ Apply Pricing Logic Based on Expiry Date:
 
 Method: GET
 URL: http://localhost:3000/api/food/apply-pricing-logic
+
+
+expiryDate :
+http://localhost:3002/api/food/check-expiry?date=09-25-2024
+
+Get Items Best Before 7 Days
+http://localhost:3002/api/food/best-before?days=7
+
+Get Quantity by Category (GET):
+http://localhost:3002/api/food/category-quantity
