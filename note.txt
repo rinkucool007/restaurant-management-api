@@ -64,3 +64,42 @@ http://localhost:3002/api/food/best-before?days=7
 
 Get Quantity by Category (GET):
 http://localhost:3002/api/food/category-quantity
+
+GET food item by ID with nutritional details:
+Method: GET
+URL: http://localhost:3002/api/food/1/nutrition
+
+
+GET food items by store and category:
+
+Method: GET
+URL: http://localhost:3002/api/food/Sweet Bakery/category/Desserts
+
+POST a new food item:
+
+Method: POST
+URL: http://localhost:3002/api/food
+Body: (Select raw and JSON format)
+json
+Copy code
+{
+  "storeName": "Sweet Bakery",
+  "categoryName": "Desserts",
+  "newFood": {
+    "name": "Red Velvet Cake",
+    "price": 12.00,
+    "manufactureDate": "2024-09-15",
+    "expiryDate": "2024-09-30",
+    "bestBeforeDate": "2024-09-25",
+    "quantity": 20,
+    "nutrition": {
+      "calories": "300 kcal",
+      "proteins": "4g",
+      "carbs": "45g",
+      "fats": "10g",
+      "cholesterol": "50mg",
+      "sodium": "250mg"
+    },
+    "imageUrl": "/images/red_velvet_cake.jpg"
+  }
+}

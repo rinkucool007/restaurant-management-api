@@ -3,6 +3,8 @@ const router = express.Router();
 const {
     getAllFood,
     addFood,
+    addFoodToStore,
+    getFoodByStoreAndCategory,
     updateFood,
     deleteFood,
     getBestBeforeDays,
@@ -12,6 +14,12 @@ const {
 
 // GET all food items
 router.get('/', getAllFood);
+
+// GET food items by store and category
+router.get('/:storeName/category/:categoryName', getFoodByStoreAndCategory);
+
+// POST a new food item to a specific store and category
+router.post('/', addFoodToStore);
 
 // GET food item by ID with nutritional details
 router.get('/:id/nutrition', getFoodWithNutrition);

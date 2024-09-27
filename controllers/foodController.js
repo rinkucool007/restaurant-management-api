@@ -14,16 +14,34 @@ const writeFoodData = (data) => {
     fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 };
 
-// GET all food items
+// GET all food items across all stores
 exports.getAllFood = (req, res) => {
     const foodData = readFoodData();
-    res.json(foodData);
+    const allFoodItems = foodData.stores.flatMap(store => 
+        Object.values(store.categories).flat()
+    );
+    res.json(allFoodItems);
 };
 
-// GET all food items with nutritional information
-exports.getAllFood = (req, res) => {
+// GET food items by store and category
+exports.getFoodByStoreAndCategory = (req, res) => {
     const foodData = readFoodData();
-    res.json(foodData);
+    const storeName = req.params.storeName;
+    const categoryName = req.params.categoryName;
+
+    const store = foodData.stores.find(store => store.storeName.toLowerCase() === storeName.toLowerCase());
+
+    if (!store) {
+        return res.status(404).json({ message: 'Store not found' });
+    }
+
+    const categoryItems = store.categories[categoryName];
+
+    if (categoryItems) {
+        res.json(categoryItems);
+    } else {
+        res.status(404).json({ message: 'Category not found in this store' });
+    }
 };
 
 // GET food item by ID with nutritional details
@@ -37,6 +55,28 @@ exports.getFoodWithNutrition = (req, res) => {
     } else {
         res.status(404).json({ message: 'Food item not found' });
     }
+};
+
+// POST a new food item to a specific store and category
+exports.addFoodToStore = (req, res) => {
+    const foodData = readFoodData();
+    const { storeName, categoryName, newFood } = req.body;
+
+    const store = foodData.stores.find(store => store.storeName.toLowerCase() === storeName.toLowerCase());
+
+    if (!store) {
+        return res.status(404).json({ message: 'Store not found' });
+    }
+
+    if (!store.categories[categoryName]) {
+        store.categories[categoryName] = [];
+    }
+
+    newFood.id = store.categories[categoryName].length + 1; // Assign a new ID based on the current category
+    store.categories[categoryName].push(newFood);
+    
+    writeFoodData(foodData);
+    res.status(201).json(newFood);
 };
 
 // POST new food item
